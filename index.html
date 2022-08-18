@@ -17,6 +17,7 @@
         const clicked_button = () =>{
             return {
                 type:'clicked_button',
+                // payload = data that you want to pass
                 payload:'red'
             }
         }
@@ -26,11 +27,16 @@
         const viewReducer = (state= {},action) =>{
             switch(action.type){
                 case 'clicked_button':
-                    
+                    let newState = Object.assign(
+                        {}, 
+                        state, 
+                        {color:action.payload})
+                        console.log('new state')
                     break;
             }
         }
 
+        viewReducer({}, clicked_button())
     </script>
 </body>
 </html>
