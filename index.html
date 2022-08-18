@@ -11,7 +11,16 @@
     <button >Chnage Background</button>
     
     <!-- <script src="index.js"></script> -->
+
+
+
     <script>
+        
+
+        // import redux
+        const { createStore, combineReducers } = Redux
+        
+
 
         // action creators
         const clicked_button = () =>{
@@ -27,6 +36,7 @@
         }
 
         // reducers
+        // handling mulriple actions
         const viewReducer = (state={},action) =>{
             switch(action.type){
                 case 'clicked_button':
@@ -36,7 +46,7 @@
                         {}, 
                         state, 
                         {color:action.payload})
-                        
+
                         console.log('new state')
                         return newState
                         // return a state
@@ -46,7 +56,17 @@
             }
         }
 
-        console.log(viewReducer(mystate, clicked_button()))
+        // console.log(viewReducer(mystate, clicked_button()))
+
+
+        // creating a store
+        const allReducers = combineReducers({
+            viewReducer: viewReducer
+        })
+
+        const store = createStore(allReducers)
+
+        console.log(store.getState())
         
     </script>
 </body>
