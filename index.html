@@ -22,15 +22,21 @@
             }
         }
 
+        const mystate = {
+            color:'blue'
+        }
 
         // reducers
-        const viewReducer = (state= {},action) =>{
+        const viewReducer = (state={},action) =>{
             switch(action.type){
                 case 'clicked_button':
+                    console.log(state)
+
                     let newState = Object.assign(
                         {}, 
                         state, 
                         {color:action.payload})
+                        
                         console.log('new state')
                         return newState
                         // return a state
@@ -40,7 +46,8 @@
             }
         }
 
-        console.log(viewReducer({}, clicked_button()))
+        console.log(viewReducer(mystate, clicked_button()))
+        
     </script>
 </body>
 </html>
