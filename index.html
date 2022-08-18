@@ -37,7 +37,7 @@
 
         // reducers
         // handling mulriple actions
-        const viewReducer = (state={},action) =>{
+        const viewReducer = (state=mystate,action) =>{
             switch(action.type){
                 case 'clicked_button':
                     console.log(state)
@@ -67,6 +67,9 @@
         const store = createStore(allReducers)
 
         console.log(store.getState())
+
+        // dispatch 
+        store.dispatch(clicked_button())
         
     </script>
 </body>
