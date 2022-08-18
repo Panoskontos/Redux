@@ -68,7 +68,6 @@
 
         const store = createStore(allReducers)
 
-        console.log(store.getState())
 
         // dispatch our reducers
         store.dispatch(clicked_button())
@@ -80,7 +79,21 @@
         mybtn.addEventListener('click',() => {
             store.dispatch(clicked_button())
         })
-        
+
+        const render = () => {
+            const appState = store.getState().viewReducer
+            console.log("initial state")
+            console.log(appState)
+            // initilise state
+            document.body.style.backgroundColor = appState.color
+        }
+
+        // run initial render
+        render()
+
+        // once there are changes to the store run render again
+        store.subscribe(render)
+
     </script>
 </body>
 </html>
