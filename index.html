@@ -12,13 +12,25 @@
     
     <!-- <script src="index.js"></script> -->
     <script>
-        // actio creators
+
+        // action creators
         const clicked_button = () =>{
             return {
                 type:'clicked_button',
                 payload:'red'
             }
         }
+
+
+        // reducers
+        const viewReducer = (state= {},action) =>{
+            switch(action.type){
+                case 'clicked_button':
+                    
+                    break;
+            }
+        }
+
     </script>
 </body>
 </html>
