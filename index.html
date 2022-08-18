@@ -32,6 +32,7 @@
             }
         }
 
+        // initial state
         const mystate = {
             color:'blue'
         }
@@ -70,16 +71,18 @@
 
 
         // dispatch our reducers
+        // run reducer and change the state
         store.dispatch(clicked_button())
 
 
-        const mybtn = document.getElementById("mybtn")
-        
         // connect reducer with html button
+        const mybtn = document.getElementById("mybtn")
         mybtn.addEventListener('click',() => {
             store.dispatch(clicked_button())
         })
 
+    
+        // function runs whenever store changes IF IT IS SUBSCRIBED 
         const render = () => {
             const appState = store.getState().viewReducer
             console.log("initial state")
