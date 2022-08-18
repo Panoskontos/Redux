@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body class="sclass">
-    <button >Chnage Background</button>
+
+    <button id="mybtn">Chnage Background</button>
     
     <!-- <script src="index.js"></script> -->
 
@@ -18,7 +19,7 @@
         
 
         // import redux
-        const { createStore, combineReducers } = Redux
+        // const { createStore, combineReducers } = Redux
         
 
 
@@ -52,6 +53,7 @@
                         // return a state
                     break;
                 default:
+                    return state
                     break;
             }
         }
@@ -68,8 +70,16 @@
 
         console.log(store.getState())
 
-        // dispatch 
+        // dispatch our reducers
         store.dispatch(clicked_button())
+
+
+        const mybtn = document.getElementById("mybtn")
+        
+        // connect reducer with html button
+        mybtn.addEventListener('click',() => {
+            store.dispatch(clicked_button())
+        })
         
     </script>
 </body>
